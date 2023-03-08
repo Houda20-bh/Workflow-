@@ -2,8 +2,10 @@ const express= require ('express');
 const colors= require('colors');
 const mongoose = require('mongoose');
 const dotenv= require('dotenv').config();
+const cors = require('cors')
 const connectDB = require('./config/db')
-const app = express();
+const app = express('cors');
+app.use(cors());
 connectDB();
 const myTodo = require('./Model/todoModel')
 app.use(express.urlencoded({extended:true}))
